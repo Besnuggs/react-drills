@@ -1,21 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+export default class App extends Component{
+  constructor(props){
+    super(props)
+    this.state = {
+      VidyaGames: [
+        "Fallout 3",
+        "Skyrim",
+        "Neverwinter Nights",
+        "Neverwinter Nights 2",
+        "Baldur's Gate",
+        "Fallout: New Vegas"
+      ]
+    }
   }
-}
 
-export default App;
+render(){
+  let displayGames = this.state.VidyaGames.map((element,index) => {
+    return(
+      <h2 key={index}>{element}</h2>
+    )
+  })
+
+  return(
+    <div className="App">
+      <h1> {displayGames}</h1>
+    </div>
+  )
+ 
+
+}
+}

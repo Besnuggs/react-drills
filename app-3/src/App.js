@@ -1,21 +1,41 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+export default class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      emptyStringMaybe: '',
+      myArray: [
+        "What",
+        "Where",
+        "Why",
+        "How",
+        "Question",
+        "Statement",
+        "Tryop",
+        "Kooo",
+        "Weeeeelp"
+      ]
+    }
   }
+
+handleThisFunction(filter){
+  this.setState({emptyStringMaybe: filter})
 }
 
-export default App;
+render(){
+let displayArray = this.state.myArray.filter((element,index) => {
+  return element.includes(this.state.emptyStringMaybe);
+}).map((element,index) => {
+  return <h1 type={index}>{element}</h1>
+})
+
+  return(
+    <div className="App">
+    <input onChange={(e)=>this.handleThisFunction(e.target.value)} />
+    {displayArray}
+    </div>
+  )
+}
+}
