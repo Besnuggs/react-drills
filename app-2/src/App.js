@@ -1,34 +1,34 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css'
 
 export default class App extends Component{
   constructor(props){
     super(props)
     this.state = {
-      VidyaGames: [
-        "Fallout 3",
-        "Skyrim",
-        "Neverwinter Nights",
-        "Neverwinter Nights 2",
-        "Baldur's Gate",
-        "Fallout: New Vegas"
+      bookArray: [
+        'Infinite Jest',
+        'Consider The Lobster',
+        'A Supposedly Fun Thing Ill Never Do Again',
+        'Extremely Loud and Incredibly Close',
+        'Everything is Illuminated',
+        'Ask The Dust',
+        'Wait Until Spring, Bandini',
+        'Anacoluthon'
       ]
     }
   }
 
 render(){
-  let displayGames = this.state.VidyaGames.map((element,index) => {
-    return(
-      <h2 key={index}>{element}</h2>
-    )
-  })
-
+let displayList = this.state.bookArray.map((ele,index) => {
   return(
-    <div className="App">
-      <h1> {displayGames}</h1>
-    </div>
+    <h1 key={index}>{ele}</h1>
   )
- 
+})
 
+return(
+  <div className="App">
+  {displayList}
+  </div>
+)
 }
 }
