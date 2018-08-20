@@ -5,6 +5,7 @@ export default class App extends Component {
   constructor(props){
     super(props)
     this.state = {
+      timer: 0,
       emptyStringMaybe: '',
       myArray: [
         "What",
@@ -25,6 +26,10 @@ handleThisFunction(filter){
 }
 
 render(){
+setTimeout(()=>{
+  this.setState({timer: this.state.timer + 1
+})}, 1000)
+
 let displayArray = this.state.myArray.filter((element,index) => {
   return element.includes(this.state.emptyStringMaybe);
 }).map((element,index) => {
@@ -35,6 +40,7 @@ let displayArray = this.state.myArray.filter((element,index) => {
     <div className="App">
     <input onChange={(e)=>this.handleThisFunction(e.target.value)} />
     {displayArray}
+    <h1>{this.state.timer}</h1>
     </div>
   )
 }
